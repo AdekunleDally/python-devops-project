@@ -1,5 +1,13 @@
-import time
+from flask import Flask, jsonify
 
-ts =time.time()
+app = Flask(__name__)
 
-print(ts)
+@app.route('/timestamp', methods=['GET'])
+def get_timestamp():
+  import time
+  ts =time.time()
+ 
+  return jsonify({'timestamp':ts})
+
+if __name__== '__main__':
+  app.run(debug=True)

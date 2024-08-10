@@ -3,6 +3,7 @@ Overview
 This repository contains a Python script that prints the current timestamp to the console. We will deploy this script as a web service in a Kubernetes cluster, allowing it to be invoked via an HTTP GET request and return the timestamp.
 
 Implementation Details
+Install Python flask
 
 1. Containerization: We will use Docker to containerize the Python script. The Dockerfile will use a lightweight Python image and copy the script into the container.
 
