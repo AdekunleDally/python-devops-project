@@ -1,7 +1,20 @@
-FROM python:3.9-slim
+# Use an official python runtime as a parent image
+FROM python:3.11-slim
+
+# Set the working directory in the container
 WORKDIR /app
-COPY requirements.txt .
-COPY python-devops-project/ ./app/
+
+# Copy the curent directory contents into the container at /app
+COPY . /app
+
+# Install the needed packags specified in the requirement.txt file
 RUN pip install -r requirements.txt
+
+# Make port 8000 availabe globally
 EXPOSE 8000
-CMD ["python", ]
+
+# Define environment variable
+ENV FLASK_APP=app.py
+
+# Run the application
+CMD ["flask", "run", "--host=0.0.0.0"]
