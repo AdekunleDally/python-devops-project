@@ -4,6 +4,7 @@ This repository contains a Python script that prints the current timestamp to th
 
 Implementation Details
 Install Python flask
+Install Flask-RESTful
 
 1. Containerization: We will use Docker to containerize the Python script. The Dockerfile will use a lightweight Python image and copy the script into the container.
 
