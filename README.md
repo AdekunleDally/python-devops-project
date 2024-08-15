@@ -25,7 +25,7 @@ Design Choices
 
 Repository Structure
 
-- (link unavailable): The Python script
+- print_timestamp.py: The Python script
 - Dockerfile: The Dockerfile for containerization
 - deployment.yaml: The Kubernetes deployment YAML file
 - helm_chart: The Helm chart directory

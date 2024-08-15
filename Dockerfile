@@ -10,7 +10,7 @@ COPY . /app
 # Install the needed packags specified in the requirement.txt file
 RUN pip install -r requirements.txt
 
-# Make port 8000 availabe globally
+# Make port 8000 available globally
 EXPOSE 8000
 
 # Define environment variable
