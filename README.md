@@ -6,7 +6,7 @@ Implementation Details
 Install Python flask
 Install Flask-RESTful
 
-1. Containerization: We will use Docker to containerize the Python script. The Dockerfile will use a lightweight Python image and copy the script into the container.
+1. Containerization: We will use Docker to containerize the Python script. The Dockerfile will use a lightweight Python image and copy the script into the container. We would set the container host to a port 5000 and the container to port 5000
 
 2. Kubernetes Deployment: We will create a Kubernetes deployment YAML file to deploy the containerized script. The deployment will include:
     - A pod with a single container running the script
@@ -25,7 +25,7 @@ Design Choices
 
 Repository Structure
 
-- print_timestamp.py: The Python script
+- app.py: The Python script
 - Dockerfile: The Dockerfile for containerization
 - deployment.yaml: The Kubernetes deployment YAML file
 - helm_chart: The Helm chart directory

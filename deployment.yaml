@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-time-stamp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-time-stamp
+  template:
+    metadata:
+      labels:
+        app: python-time-stamp
+    spec:
+      containers:
+      - name: time_stamp_container02
+        image: print_time_stamp_image02:latest
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
