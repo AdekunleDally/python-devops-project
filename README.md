@@ -5,9 +5,11 @@ This repository contains a Python script that prints the current timestamp to th
 Implementation Details
 Install Python flask
 Install Flask-RESTful 
-Dockerise the application
+Dockerise the application; create an image of your application and push to dockerhub
+Create an instance of your image(I.e. create a container)
 Install KIND on your terminal
 Create a KIND cluster and load the docker image into KIND
+create Kubernetes deployment and kubernetes service
 Forward the port to access the service from your machine
 
 1. Containerization: We will use Docker to containerize the Python script. The Dockerfile will use a lightweight Python image and copy the script into the container. We would set the container host to a port 5000 and the container to port 5000
