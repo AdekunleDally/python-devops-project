@@ -3,7 +3,7 @@ import time
 
 app = Flask(__name__)
 
-@app.route('/timestamp', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_timestamp():
     ts = time.time()
     return jsonify({'timestamp': ts})

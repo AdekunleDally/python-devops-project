@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-time-stamp
+  name: timestamp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: python-time-stamp
+      app: timestamp
   template:
     metadata:
       labels:
-        app: python-time-stamp
+        app: timestamp
     spec:
       containers:
-      - name: time_stamp_container02
-        image: print_time_stamp_image02:latest
+      - name: timestamp
+        image: lukmanadeokun31/timestamp:latest
         ports:
         - containerPort: 5000
         resources:

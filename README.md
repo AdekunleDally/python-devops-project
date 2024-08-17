@@ -1,14 +1,18 @@
 Overview
 
-This repository contains a Python script that prints the current timestamp to the console. We will deploy this script as a web service in a Kubernetes cluster, allowing it to be invoked via an HTTP GET request and return the timestamp.
+This repository contains a Python script that prints the current timestamp to the console. We will deploy this script as a web service in a Kubernetes cluster, allowing it to be invoked via an HTTP GET request and return the timestamp. KIND(Kubernetes in Docker) was used to achieve this
 
 Implementation Details
 Install Python flask
-Install Flask-RESTful
+Install Flask-RESTful 
+Dockerise the application
+Install KIND on your terminal
+Create a KIND cluster and load the docker image into KIND
+Forward the port to access the service from your machine
 
 1. Containerization: We will use Docker to containerize the Python script. The Dockerfile will use a lightweight Python image and copy the script into the container. We would set the container host to a port 5000 and the container to port 5000
 
-2. Kubernetes Deployment: We will create a Kubernetes deployment YAML file to deploy the containerized script. The deployment will include:
+2. Kubernetes Deployment: We will create a Kubernetes deployment YAML file  and a service YAML file to deploy the containerized script. The deployment will include:
     - A pod with a single container running the script
     - A service exposing the pod on port 80
     - Autoscaling configuration to scale based on CPU usage
@@ -28,6 +32,7 @@ Repository Structure
 - app.py: The Python script
 - Dockerfile: The Dockerfile for containerization
 - deployment.yaml: The Kubernetes deployment YAML file
+- service-definition.yaml : The service definition YAML file that defines how kubernetes objects(such as pods) communicate with each other
 - helm_chart: The Helm chart directory
 - prometheus_config.yaml: The Prometheus configuration file
 - grafana_dashboard.json: The Grafana dashboard configuration file
