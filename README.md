@@ -1,16 +1,16 @@
-Overview
+# Overview
 
 This repository contains a Python script that prints the current timestamp to the console. We will deploy this script as a web service in a Kubernetes cluster, allowing it to be invoked via an HTTP GET request and return the timestamp. KIND(Kubernetes in Docker) was used to achieve this
 
-Implementation Details
-Install Python flask
-Install Flask-RESTful 
-Dockerise the application; create an image of your application and push to dockerhub
-Create an instance of your image(I.e. create a container)
-Install KIND on your terminal
-Create a KIND cluster and load the docker image into KIND
-create Kubernetes deployment and kubernetes service
-Forward the port to access the service from your machine
+# Implementation Details
+* Install Python flask
+* Install Flask-RESTful 
+* Dockerise the application; create an image of your application and push to dockerhub
+* Create an instance of your image(I.e. create a container)
+* Install KIND on your terminal
+*Create a KIND cluster and load the docker image into KIND
+* Create Kubernetes deployment and kubernetes service
+* Forward the port to access the service from your machine
 
 1. Containerization: We will use Docker to containerize the Python script. The Dockerfile will use a lightweight Python image and copy the script into the container. We would set the container host to a port 5000 and the container to port 5000
 
