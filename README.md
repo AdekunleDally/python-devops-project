@@ -11,6 +11,7 @@ This repository contains a Python script that prints the current timestamp to th
 *Create a KIND cluster and load the docker image into KIND
 * Create Kubernetes deployment and kubernetes service
 * Forward the port to access the service from your machine
+* Install helm 
 
 1. Containerization: We will use Docker to containerize the Python script. The Dockerfile will use a lightweight Python image and copy the script into the container. We would set the container host to a port 5000 and the container to port 5000
 

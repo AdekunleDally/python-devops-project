@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: timestamp
+  name: {{ .Release.Name }}-deploy
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: timestamp
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: timestamp
-        image: lukmanadeokun31/timestamp:latest
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         ports:
         - containerPort: 5000
         resources:
