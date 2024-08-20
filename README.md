@@ -22,7 +22,7 @@ This repository contains a Python script that prints the current timestamp to th
 
 3. Helm Chart: We will package the Kubernetes deployment as a Helm chart for easy installation and management.
 
-4. Monitoring: We will implement basic monitoring using Prometheus and Grafana. The script will expose metrics on port 8000, and Prometheus will scrape these metrics. Grafana will display the metrics in a dashboard.
+4. Monitoring: We will implement basic monitoring using Prometheus and Grafana. The script will expose metrics on port 9090, and Prometheus will scrape these metrics. Grafana will display the metrics in a dashboard.
 
 Design Choices
 
