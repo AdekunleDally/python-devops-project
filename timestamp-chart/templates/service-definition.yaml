@@ -2,11 +2,33 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Release.Name }}-service
+  labels:
+    job: timestamp
+    app: timestamp
 spec:
   selector:
     app: timestamp
   ports:
-    - port: 80
+    - name: web
+      port: 80
       protocol: TCP
       targetPort: 5000
-  type: LoadBalancer
+  type: ClusterIP
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: timestamp-service-monitor
+  labels:
+    release: prometheus
+    app: prometheus
+spec:
+  jobLabel: job
+  endpoints:
+    - interval: 30s
+      port: web
+      path: /metrics
+  selector:
+    matchLabels: 
+      app: timestamp
