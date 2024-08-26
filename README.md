@@ -92,7 +92,8 @@ This repository contains an implementation of a Python Flask application deploye
 ![Port Forward to timestamp service](./pics/port-forward%20to%20timestamp%20service%20(2).png)
 
 
-## Monitoring and Observability
+## Monitoring, Observability and Visualisation
+
 
 ### Prometheus Integration
 
@@ -124,6 +125,37 @@ This repository contains an implementation of a Python Flask application deploye
 
      ![Timestamp Job](./pics/timestamp%20job.png)
 
+
+
+### Grafana Integration
+The grafana component is already included in the kube-prometheus-chart
+![Grafana Component](./pics/grafana-in-kube-proemtheus-stack.png)
+
+Port-forward traffic to the grafana server
+![Pot-forward to Grafana](./pics/port-forward-to-grafana.png)
+
+The grafana username is admin. The grafana password can be accessed through the command
+`kubectl get secret prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode`
+
+
+Accessing Grafana dashboard on localhost:3000
+![Grafana Dashboard](./pics/grafana-login.png)
+
+
+The Grafana dashboard
+![Grafana Dashboard-II](./pics/grafana%20dashboard.png)
+
+
+Adding the prometheus as a datasource to grafana
+![Prometheus-as-a-Datasource](./pics/prometheus-as-a-data-source.png)
+
+Querying the flask-http-request-total metric
+![QueryingMetrics](./pics/querying-http-request-metric.png)
+
+Data visualisation of the flask-http-request-total metrics
+![Data-visualisation](./pics/data-visualisation-http-request.png)
+
+
 ## Design Choices
 
 - **Lightweight Container:** A lightweight Python image is used to keep the container size small.
@@ -142,4 +174,4 @@ This repository contains an implementation of a Python Flask application deploye
 - `timestamp-chart/values.yaml`:A yaml file in the helm chart directory used to define values for templates and configurations in the timestamp-chart.
 ## Invoking the Service
 
-To invoke the service,run  `kubectl port-forward svc/timestamp-service 5000:80` and  `kubectl port-forward prometheus-prometheus-kube-prometheus-prometheus-0 9090` send an HTTP GET request to `http://<service-ip>:80`. The service will return the current timestamp in JSON format.
+To invoke the service,run  `kubectl port-forward svc/timestamp-service 5000:80` and  `kubectl port-forward prometheus-prometheus-kube-prometheus-prometheus-0 9090`. Send an HTTP GET request to `http://<service-ip>:80`. The service will return the current timestamp in JSON format.
