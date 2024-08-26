@@ -2,7 +2,9 @@
 
 ## Overview
 
-This repository contains an implementation of a Python Flask application deployed in a Kubernetes cluster. Monitoring is enabled through Prometheus, which scrapes metrics from the application. The application provides a single API endpoint (`/`) that returns the current timestamp in JSON format.
+This repository contains an implementation of a Python Flask application deployed in a Kubernetes cluster. Monitoring is enabled through Prometheus, which scrapes metrics from the application. For visualisation of the scraped metrics, Grafana was used.
+
+The application provides a single API endpoint (`/`) that returns the current timestamp in JSON format.
 
 ## Implementation Details
 
@@ -77,6 +79,7 @@ This repository contains an implementation of a Python Flask application deploye
 
    ![timestamp-chart](./pics/creating%20timestamp-chart.png)
 
+
 2. **Deploy the Application:**
    - Install the application using Helm:
      ```bash
@@ -90,6 +93,19 @@ This repository contains an implementation of a Python Flask application deploye
 ![timestamp-chart release](./pics/creating%20timestamp-release-II-(2).png)
 
 ![Port Forward to timestamp service](./pics/port-forward%20to%20timestamp%20service%20(2).png)
+
+
+
+3.  **Update the timestamp helm Chart for the Application:**
+   - Add Kubernetes hpa.yaml file (`hpa.yaml`) to the `timestamp-chart/templates/` directory.
+
+   - Update the Helm chart:
+     ```bash
+     helm upgrade timestamp ./timestamp-chart
+     ```
+  
+   ![timestamp-chart](./pics/helm-upgrade-of-hpa-file.png)
+
 
 
 ## Monitoring, Observability and Visualisation
@@ -167,6 +183,9 @@ Data visualisation of the flask-http-request-total metrics
 - `app.py`: The Python application script.
 - `Dockerfile`: Dockerfile for containerization.
 - `deployment.yaml`: Kubernetes deployment YAML file.
+
+- `hpa.yaml` : Horizontal Pod Autoscaler YAML file.  This file defines the metrics that will trigger scaling (e.g., CPU, memory, or custom metrics) and also specifies the minimum and maximum number of pod replicas that the HPA can scale to.
+
 - `service.yaml`: Kubernetes service definition YAML file, including service monitoring configuration.
 - `requirements.txt` : A file containing the dependencies required to run the application.
 - `timestamp-chart/`: Helm chart directory for deploying the application to the Kubernetes cluster.
