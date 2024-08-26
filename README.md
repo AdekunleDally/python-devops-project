@@ -1,4 +1,4 @@
-# Python Flask Application in Kubernetes with Prometheus Monitoring
+# Python Flask Application in Kubernetes with Prometheus Monitoring and Visualisation using Grafana
 
 ## Overview
 
