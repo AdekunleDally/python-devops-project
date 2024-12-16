@@ -40,7 +40,7 @@ The application provides a single API endpoint (`/`) that returns the current ti
    - Create a KIND cluster and load the Docker image into it.
      ```bash
      kind create cluster --name timestamp
-     kind load docker-image lukmanadeokun31/timestamp
+     kind load docker-image lukmanadeokun31/timestamp --name timestamp
      ```
 
      ![Create Kind Cluster](./pics/timestamp%20cluster_create.png)
